@@ -92,17 +92,16 @@ function App() {
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://localhost:5000/upload", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch("https://sadseditor-production.up.railway.app/upload", {
+  method: "POST",
+  body: formData,
+});
 
       const data = await response.json();
 
       if (response.ok) {
-        setMessage("Upload successful!");
-        setImageUrl(`http://localhost:5000/uploads/${data.filename}`);
-        setUploadDone(true);
+         setMessage("Upload successful!");
+        setImageUrl(`https://sadseditor-production.up.railway.app/uploads/${data.filename}`);
         setDeleteInput(file.name);
         setFile(null);
         if (fileInputRef.current) fileInputRef.current.value = "";
@@ -131,9 +130,9 @@ function App() {
     }
 
     const baseUrl =
-      window.location.hostname === "localhost"
-        ? "http://localhost:5000"
-        : "/.netlify/functions";
+  window.location.hostname === "localhost"
+    ? "http://localhost:5000"
+    : "https://sadseditor-production.up.railway.app";
 
     try {
       const response = await fetch(
