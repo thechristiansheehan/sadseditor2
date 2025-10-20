@@ -34,6 +34,9 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
+app.get("/", (req, res) => {
+  res.send("Server is running! 🚀");
+});
 
 // Log all requests
 app.use((req, res, next) => {
