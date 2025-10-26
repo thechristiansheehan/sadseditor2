@@ -53,15 +53,6 @@ const upload = multer({
   { name: "file", maxCount: 1 },
 ]);
 
-<<<<<<< HEAD
-=======
-const upload = multer({ storage });
-app.get("/", (req, res) => {
-  res.send("Server is running! 🚀");
-});
-
-// Log all requests
->>>>>>> ace65c38caf1e0f16a04d9710950ce6908cfa1c5
 app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
   next();
@@ -149,8 +140,10 @@ app.post("/upload", upload, async (req, res) => {
         textfile: textFilename,
         image: imageFilename,
         urls: {
-          text: `http://localhost:5000/uploads/${textFilename}`,
-          image: `http://localhost:5000/uploads/${imageFilename}`,
+          text: `https://sadseditor-production.up.railway.app/uploads/
+${textFilename}`,
+          image: `https://sadseditor-production.up.railway.app/uploads/
+${imageFilename}`,
         },
       });
     }
@@ -267,10 +260,5 @@ app.delete("/delete-resource/:number", async (req, res) => {
 
 app.use("/uploads", express.static(uploadDir));
 
-<<<<<<< HEAD
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
-=======
-// Start server
-app.listen(5000, () => console.log("Server running on http://localhost:5000"));
->>>>>>> ace65c38caf1e0f16a04d9710950ce6908cfa1c5
