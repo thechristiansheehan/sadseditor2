@@ -55,7 +55,7 @@ function Resources() {
         console.log(`FormData: ${key} = ${value.name}`);
       }
 
-      const response = await fetch("https://sadseditor-production.up.railway.app/uploads/", {
+      const response = await fetch("https://sadseditor-production.up.railway.app/upload", {
         method: "POST",
         body: formData,
       });
